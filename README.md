@@ -1,8 +1,11 @@
 # **🚀 WBTC → S3 → ClickHouse Analytics Pipeline**  
-*High-performance blockchain ETL with etherium node, clichouse, S3, Airflow, DBT, and Metabase*  
+*High-performance blockchain ETL with etherium node, clickhouse, S3, Airflow, DBT, and Metabase*  
 
 ### **🔍 Overview**  
-This pipeline **extracts raw Ethereum data** (WBTC/Uniswap events) via **Chainlink RPC + Subgraph**, processes it with **Cryo**, stores in **S3**, loads into **ClickHouse**, transforms with **DBT**, and orchestrates with **Airflow**. Designed for high-throughput onchain analytics.  
+Pipeline Overview
+This data stack extracts raw Ethereum data (WBTC/Uniswap events) through multiple complementary methods: Chainlink RPC provides direct blockchain access for real-time queries, while Subgraph streams decoded event data, and Cryo handles bulk historical log extraction. The collected data is stored in a dual-layer system - S3 serves as a reliable backup for raw JSON logs, while ClickHouse functions as the primary analytical database optimized for high-throughput blockchain queries.
+
+The transformation layer leverages DBT for SQL-based modeling and custom aggregations tailored for WBTC flow analysis. Airflow orchestrates the entire workflow, managing scheduled pipeline execution and dependencies, while Metabase delivers visualization capabilities and alerting to complete the analytics loop. This architecture balances real-time and historical processing with scalable storage and transformation.  
 
 ---
 
@@ -30,23 +33,8 @@ This pipeline **extracts raw Ethereum data** (WBTC/Uniswap events) via **Chainli
 ---
 
 ## **🛠️ Architecture**  
-graph LR  
-  subgraph Docker Containers
-    B[Cryo]
-    C[Subgraph]
-    D[Airflow]
-    E[ClickHouse]
-    F[Metabase]
-  end
-  
-  A[Ethereum RPC] -->|Chainlink| B
-  A -->|The Graph| C
-  B -->|JSON| G[(S3 Bucket)]
-  C -->|Decoded Events| G
-  G -->|Trigger| D
-  D -->|Load| E
-  E -->|DBT| H[Analytics Models]
-  H --> F
+
+c:\Users\HP Z BOOK\Downloads\deepseek_mermaid_20250418_53d3d8.png
 
 ## **🚀 Quick Start**  
 ### **1. Prerequisites**  
