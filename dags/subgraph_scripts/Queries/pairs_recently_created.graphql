@@ -1,0 +1,17 @@
+{
+  pairs(orderBy: createdAtBlockNumber, orderDirection: desc, first: 10) {
+    id
+    createdAtTimestamp
+    createdAtBlockNumber
+    token0 {
+      symbol
+      id
+    }
+    token1 {
+      symbol
+      id
+    }
+    reserveUSD
+    reserveETH
+  }
+}

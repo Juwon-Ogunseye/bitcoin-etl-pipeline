@@ -1,0 +1,33 @@
+{
+  swaps(
+    first: 5
+    orderBy: timestamp
+    orderDirection: desc
+    where: {
+      amountUSD_gte: 100000
+      _or: [
+        { pair: { token0: { symbol: "WBTC" } } }
+        { pair: { token1: { symbol: "WBTC" } } }
+      ]
+    }
+  ) {
+    id
+    transaction {
+      id
+      timestamp
+    }
+    pair {
+      token0 {
+        symbol
+      }
+      token1 {
+        symbol
+      }
+    }
+    amount0In
+    amount1In
+    amount0Out
+    amount1Out
+    amountUSD
+  }
+}

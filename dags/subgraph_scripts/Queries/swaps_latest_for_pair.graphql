@@ -1,0 +1,30 @@
+{
+  swaps(
+    first: 5
+    orderBy: timestamp
+    orderDirection: desc
+    where: {
+      # WBTC/WETH pair
+      pair_: { id: "0xbb2b8038a1640196fbe3e38816f3e67cba72d940" }
+    }
+  ) {
+    id
+    transaction {
+      id
+      timestamp
+    }
+    pair {
+      token0 {
+        symbol
+      }
+      token1 {
+        symbol
+      }
+    }
+    amount0In
+    amount1In
+    amount0Out
+    amount1Out
+    amountUSD
+  }
+}

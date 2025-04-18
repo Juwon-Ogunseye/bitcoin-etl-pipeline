@@ -1,0 +1,12 @@
+{
+  _meta {
+    block {
+      hash
+      number
+      parentHash
+      timestamp
+    }
+    deployment
+    hasIndexingErrors
+  }
+}

@@ -1,0 +1,21 @@
+
+target
+/target
+*.csv
+*.csv_tmp
+*.parquet
+*.parquet_tmp
+*.json
+*.json_tmp
+*.env
+*._tmp
+TODO.md
+graveyard
+.idea
+flamegraph.svg
+test.sh
+/book
+/examples
+# Ignore cryo book data
+dags/cryo/book/
+dags/cryo/examples/

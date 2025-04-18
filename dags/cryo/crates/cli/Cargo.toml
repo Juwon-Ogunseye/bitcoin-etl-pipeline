@@ -1,0 +1,35 @@
+[package]
+name = "cryo_cli"
+description = "cryo is the easiest way to extract blockchain data to parquet, csv, or json"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+
+[lib]
+name = "cryo_cli"
+path = "src/lib.rs"
+
+[[bin]]
+name = "cryo"
+path = "src/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+alloy = { workspace = true }
+anstyle = { workspace = true }
+clap_cryo = { workspace = true }
+color-print = { workspace = true }
+colored = { workspace = true }
+cryo_freeze = { workspace = true }
+eyre = { workspace = true }
+governor = { workspace = true }
+hex = { workspace = true }
+mesc = { workspace = true }
+polars = { workspace = true }
+rand = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }

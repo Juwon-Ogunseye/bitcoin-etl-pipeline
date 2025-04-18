@@ -1,0 +1,15 @@
+{
+  pairDayDatas(
+    # WBTC/WETH pair
+    where: { pairAddress: "0xbb2b8038a1640196fbe3e38816f3e67cba72d940" }
+    orderBy: date
+    orderDirection: desc
+    first: 7
+  ) {
+    date
+    dailyVolumeUSD
+    dailyTxns
+    dailyVolumeToken0
+    dailyVolumeToken1
+  }
+}

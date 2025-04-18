@@ -1,0 +1,20 @@
+{
+  liquidityPositionSnapshots(
+    orderBy: timestamp
+    orderDirection: desc
+    where: {
+      # WBTC/WETH pair address
+      pair_: { id: "0xbb2b8038a1640196fbe3e38816f3e67cba72d940" }
+      liquidityTokenBalance_gt: "0"
+    }
+  ) {
+    block
+    liquidityTokenBalance
+    timestamp
+    id
+    user {
+      id
+    }
+    liquidityTokenTotalSupply
+  }
+}

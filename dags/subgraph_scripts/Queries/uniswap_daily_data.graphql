@@ -1,0 +1,9 @@
+{
+  uniswapDayDatas(first: 10, orderBy: date, orderDirection: desc) {
+    date
+    dailyVolumeETH
+    dailyVolumeUSD
+    totalLiquidityETH
+    totalLiquidityUSD
+  }
+}

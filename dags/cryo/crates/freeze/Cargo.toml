@@ -1,0 +1,33 @@
+[package]
+name = "cryo_freeze"
+build = "build.rs"
+description = "cryo is the easiest way to extract blockchain data to parquet, csv, or json"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+alloy = { workspace = true }
+async-trait = { workspace = true }
+chrono = { workspace = true }
+colored = { workspace = true }
+cryo_to_df = { workspace = true }
+futures = { workspace = true }
+governor = { workspace = true }
+heck = { workspace = true }
+indexmap = { workspace = true }
+indicatif = { workspace = true }
+mesc = { workspace = true }
+polars = { workspace = true }
+prefix-hex = { workspace = true }
+regex = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+thousands = { workspace = true }
+tokio = { workspace = true }
+url = "2.5.2"
