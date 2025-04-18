@@ -34,7 +34,8 @@ The transformation layer leverages DBT for SQL-based modeling and custom aggrega
 
 ## **🛠️ Architecture**  
 
-c:\Users\HP Z BOOK\Downloads\deepseek_mermaid_20250418_53d3d8.png
+## Architecture
+![Pipeline Diagram](docs/images/architecture.png)
 
 ## **🚀 Quick Start**  
 ### **1. Prerequisites**  
