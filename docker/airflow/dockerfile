@@ -1,0 +1,60 @@
+FROM apache/airflow:2.7.3-python3.9
+
+USER root
+#RUN pip install dbt-core dbt-clickhouse
+
+# Install OS and build dependencies (excluding old patchelf)
+RUN apt-get update && apt-get install -y \
+    gcc python3-dev git curl pkg-config libssl-dev \
+    build-essential autoconf automake libtool wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# ✅ Install patchelf 0.18.0
+RUN cd /tmp && \
+    wget https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0.tar.bz2 && \
+    tar -xvjf patchelf-0.18.0.tar.bz2 && \
+    cd patchelf-0.18.0 && ./configure && make && make install && \
+    cd / && rm -rf /tmp/patchelf-0.18.0*
+
+# ✅ Install Rust + Maturin
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+RUN cargo install maturin
+
+# ✅ Clone and build Cryo (as root)
+RUN git clone https://github.com/paradigmxyz/cryo /opt/cryo && \
+    cd /opt/cryo && git submodule update --init --recursive && \
+    cd crates/python && maturin build --release --strip
+
+# ✅ Install Cryo wheel as airflow user
+USER airflow
+RUN pip install --no-cache-dir --force-reinstall /opt/cryo/target/wheels/*.whl
+
+# ✅ Clean up Cryo source
+USER root
+RUN rm -rf /opt/cryo
+
+# Set working directory and user
+USER airflow
+ENV PATH="/root/.cargo/bin:${PATH}"
+WORKDIR /home/airflow
+
+# Fix pip cache permissions
+RUN mkdir -p /home/airflow/.cache/pip && chown -R airflow:root /home/airflow/.cache
+
+# Install other Python packages
+RUN pip install --no-cache-dir --upgrade \
+    pendulum==2.1.2 \
+    apache-airflow-providers-openlineage==1.4.0 \
+    apache-airflow-providers-sendgrid==3.4.0 \
+    web3 pandas boto3 python-dotenv
+# ✅ Install dbt-core and dbt-clickhouse
+RUN pip install --no-cache-dir \
+    dbt-core==1.7.11 \
+    dbt-clickhouse==1.7.7
+
+# Optional: install project-specific dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+WORKDIR /opt/airflow

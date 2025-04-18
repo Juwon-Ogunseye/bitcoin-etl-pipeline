@@ -1,0 +1,161 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+    environment:
+      - CLICKHOUSE_DB=bitcoin
+      - CLICKHOUSE_USER=admin
+      - CLICKHOUSE_PASSWORD=password
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+    healthcheck:
+      test: ["CMD", "clickhouse-client", "--user", "admin", "--password", "password", "-q", "SELECT 1"]
+      interval: 10s
+      timeout: 30s
+      retries: 15
+      start_period: 30s
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+      - PGOPTIONS=-c lock_timeout=30000  # 30 second timeout
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-metabase-db.sh:/docker-entrypoint-initdb.d/init-metabase-db.sh
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow -d airflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: docker/airflow/Dockerfile
+    command: >
+      bash -c "
+        pip install --user pendulum==2.1.2 dbt-core dbt-clickhouse &&
+        airflow db init &&
+        airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin &&
+        airflow webserver
+      "
+    env_file: .env
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./Load_Btc_Data:/opt/airflow/dags/Load_Btc_Data
+      - ./Utils:/opt/airflow/dags/Utils
+      - ./data:/opt/airflow/data
+      - ./dbt:/opt/airflow/dbt
+      - ./logs:/opt/airflow/logs
+      - ~/.dbt:/home/airflow/.dbt
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow?connect_timeout=30
+      - AIRFLOW__WEBSERVER__SECRET_KEY=9821fb7be33becfe2bf8bc0a957b9eec
+      - AIRFLOW__CORE__FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
+      - DBT_PROFILES_DIR=/opt/airflow/dbt
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - PYTHONPATH=/opt/airflow:/opt/airflow/dags
+      - AIRFLOW__CORE__SQL_ALCHEMY_POOL_TIMEOUT=60
+      - AIRFLOW__CORE__SQL_ALCHEMY_POOL_RECYCLE=3600
+    depends_on:
+      postgres:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: docker/airflow/Dockerfile
+    command: >
+      bash -c "
+        pip install --user pendulum==2.1.2 dbt-core dbt-clickhouse &&
+        airflow db upgrade &&
+        while ! airflow db check; do sleep 5; done &&
+        airflow scheduler
+      "
+    env_file: .env
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./dbt:/opt/airflow/dbt
+      - ~/.dbt:/home/airflow/.dbt
+      - ./logs:/opt/airflow/logs
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow?connect_timeout=30
+      - DBT_PROFILES_DIR=/opt/airflow/dbt
+      - PYTHONPATH=/opt/airflow:/opt/airflow/dags
+      - AIRFLOW__CORE__SQL_ALCHEMY_POOL_TIMEOUT=60
+    depends_on:
+      postgres:
+        condition: service_healthy
+      airflow-webserver:
+        condition: service_started
+    restart: unless-stopped
+
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-core:1.7.0
+    volumes:
+      - ./dbt:/usr/app/dbt
+      - ~/.dbt:/root/.dbt
+    environment:
+      - DBT_PROFILES_DIR=/usr/app/dbt
+      - CLICKHOUSE_HOST=clickhouse
+      - CLICKHOUSE_PORT=9000
+      - CLICKHOUSE_USER=admin
+      - CLICKHOUSE_PASSWORD=password
+
+  metabase:
+    image: metabase/metabase:v0.44.6
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./mb/plugins/clickhouse.jar:/plugins/clickhouse.jar
+      - metabase_data:/metabase-data
+    environment:
+      - MB_DB_TYPE=postgres
+      - MB_DB_DBNAME=metabase
+      - MB_DB_PORT=5432
+      - MB_DB_USER=airflow
+      - MB_DB_PASS=airflow
+      - MB_DB_HOST=postgres
+      - MB_SITE_NAME="Bitcoin Analytics"
+      - MB_JETTY_HOST=0.0.0.0
+      - MB_JETTY_PORT=3000
+      - MB_DB_CONNECTION_TIMEOUT_MS=30000
+    depends_on:
+      postgres:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  clickhouse_data:
+  postgres_data:
+  metabase_data:

@@ -1,0 +1,18 @@
+/logs
+/Logs
+/data
+.env
+# Infrastructure
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Secrets/logs
+airflow.cfg*
+etl_process.log
+aws/
+awscliv2.zip
+
+# Local overrides
+#docker-compose.yml  # Replace with docker-compose.example.yml

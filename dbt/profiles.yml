@@ -1,0 +1,11 @@
+bitcoin_etl:
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      host: clickhouse
+      port: 8123
+      user: admin
+      password: password
+      schema: bitcoin  # Changed from 'default' to match database
+      database: bitcoin  # Must match schema for ClickHouse

@@ -1,0 +1,189 @@
+version: 2
+
+sources:
+  - name: bitcoin
+    database: bitcoin
+    schema: bitcoin
+    tables:
+      - name: swaps_latest
+        description: "Latest DEX swap transactions"
+        columns:
+          - name: id
+          - name: transaction_id
+          - name: pair_token0_symbol
+          - name: pair_token1_symbol
+
+      - name: swaps_latest_for_pair
+        description: "Detailed swap transactions by pair"
+        columns:
+          - name: id
+          - name: transaction_id
+          - name: transaction_timestamp
+          - name: pair_token0_symbol
+          - name: pair_token1_symbol
+          - name: amount0_in
+          - name: amount1_in
+          - name: amount0_out
+          - name: amount1_out
+          - name: amount_u_s_d
+
+      - name: erc20_transfers_wbtc
+        description: "WBTC ERC20 transfer data"
+        columns:
+          - name: from_address
+          - name: to_address
+          - name: wbtc_amount
+          - name: block_number
+          - name: transaction_hash
+          - name: value_f64
+          - name: chain_id
+
+      - name: liquidity_positions_largest
+        description: "Largest liquidity provider positions"
+        columns:
+          - name: liquidity_token_balance
+            description: "Amount of LP tokens held"
+            tests:
+              - not_null
+              - not_negative
+          - name: pair_token0_symbol
+            description: "Base token symbol"
+          - name: pair_token1_symbol
+            description: "Quote token symbol"
+          - name: pair_id
+            tests:
+              - not_null
+          - name: user_id
+            description: "Liquidity provider address"
+
+      - name: pairs_recently_created
+        description: "New trading pairs created"
+        columns:
+          - name: id
+            description: "Pair contract address"
+          - name: created_at_timestamp
+            description: "When the pair was created"
+          - name: created_at_block_number
+            description: "Block number of creation"
+          - name: token0_symbol
+            description: "Base token symbol"
+          - name: token0_id
+            description: "Base token contract address"
+          - name: token1_symbol
+            description: "Quote token symbol"
+          - name: token1_id
+            description: "Quote token contract address"
+          - name: reserve_u_s_d
+            description: "Total liquidity in USD"
+          - name: reserve_e_t_h
+            description: "Total liquidity in ETH"
+
+models:
+  - name: example
+    description: "Simple test view"
+    columns:
+      - name: transaction_timestamp
+        tests:
+          - not_null
+
+  - name: top_liquidity_providers
+    description: "Top 10 liquidity providers by pool"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+      - name: pool_share_pct
+        tests:
+          - accepted_range:
+              min: 0
+              max: 1
+
+  - name: pairs_recently_created
+    description: "New trading pairs created on DEX (derived table)"
+    config:
+      schema: bitcoin_derived
+    columns:
+      - name: pair_id
+        description: "Pair contract address"
+        tests:
+          - not_null
+          - unique
+      - name: created_at_timestamp
+        description: "When the pair was created"
+        tests:
+          - not_null
+      - name: created_at_block_number
+        description: "Block number of creation"
+      - name: token0_symbol
+        description: "Base token symbol"
+      - name: token0_id
+        description: "Base token contract address"
+      - name: token1_symbol
+        description: "Quote token symbol"
+      - name: token1_id
+        description: "Quote token contract address"
+      - name: total_liquidity_usd
+        description: "Total liquidity in USD"
+        tests:
+          - not_negative
+      - name: total_liquidity_eth
+        description: "Total liquidity in ETH"
+        tests:
+          - not_negative
+      - name: pair_symbol
+        description: "Combined symbol for the trading pair"
+
+  - name: swaps_latest_for_pair
+    description: "Latest swap transactions for trading pairs with enriched metrics"
+    config:
+      schema: bitcoin_derived
+    columns:
+      - name: swap_id
+        description: "Unique identifier for the swap"
+        tests:
+          - not_null
+          - unique
+      - name: transaction_id
+        description: "Blockchain transaction ID"
+        tests:
+          - not_null
+      - name: transaction_timestamp
+        description: "When the swap occurred"
+        tests:
+          - not_null
+      - name: pair_token0_symbol
+        description: "Base token symbol"
+      - name: pair_token1_symbol
+        description: "Quote token symbol"
+      - name: amount0_in
+        description: "Amount of token0 input"
+        tests:
+          - not_negative
+      - name: amount1_in
+        description: "Amount of token1 input"
+        tests:
+          - not_negative
+      - name: amount0_out
+        description: "Amount of token0 output"
+        tests:
+          - not_negative
+      - name: amount1_out
+        description: "Amount of token1 output"
+        tests:
+          - not_negative
+      - name: amount_usd
+        description: "Total swap value in USD"
+        tests:
+          - not_negative
+      - name: pair_symbol
+        description: "Combined symbol for the trading pair"
+      - name: token_in_symbol
+        description: "Symbol of input token"
+      - name: token_out_symbol
+        description: "Symbol of output token"
+      - name: amount_in
+        description: "Total input amount (absolute value)"
+      - name: amount_out
+        description: "Total output amount (absolute value)"
+      - name: swap_direction
+        description: "Direction of the swap (token0_to_token1 or token1_to_token0)"
