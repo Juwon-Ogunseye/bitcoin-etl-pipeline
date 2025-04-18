@@ -105,12 +105,57 @@ docker exec -it dbt run-operation run_clickhouse_transforms
 
 ## **⚙️ Advanced Setup**  
 ### **Scaling Ingestion**  
-- Parallelize Cryo jobs by block range:  
-  ```python  
-  # Airflow DAG to split into 10k-block chunks  
-  for start_block in range(0, latest_block, 10_000):  
-      cryo.extract(start_block, start_block+10_000)  
-  ```  
+---
+
+### **Scaling Ingestion**  
+For efficient WBTC data collection, use dynamic block ranges with safety buffers:  
+
+```python
+# In your Airflow DAG or Python script
+try:
+    current_block = web3.eth.block_number
+    latest_safe_block = current_block - 7200  # 24h buffer
+    block_range = f"{latest_safe_block - 300}:{latest_safe_block}"  # 300-block window
+    
+    cryo.collect(
+        "erc20_transfers",
+        blocks=[block_range],
+        contract=["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"],  # WBTC
+        rpc=ETH_RPC_URL,
+        output_format="parquet",
+        requests_per_second=25
+    )
+    
+except Exception as e:
+    logger.error(f"Block range processing failed: {e}")
+    raise
+```
+
+#### **Key Improvements Over Static Ranges**  
+1. **Chain-Aware**:  
+   - Dynamically detects chain head  
+   - 24h buffer prevents reorg issues  
+
+2. **Optimized Performance**:  
+   - Smaller 300-block windows reduce RPC load  
+   - Parquet format for efficient storage  
+
+3. **Production-Ready**:  
+   - Built-in error handling  
+   - Configurable safety margins  
+
+#### **To Parallelize** (if needed):  
+```python
+from concurrent.futures import ThreadPoolExecutor
+
+block_ranges = [
+    f"{start}:{start+300}" 
+    for start in range(latest_safe_block-5000, latest_safe_block, 300)
+]
+
+with ThreadPoolExecutor(max_workers=4) as executor:
+    executor.map(lambda r: cryo.collect(blocks=[r], ...), block_ranges)
+```
 
 ---
 
