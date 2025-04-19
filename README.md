@@ -34,8 +34,10 @@ The transformation layer leverages DBT for SQL-based modeling and custom aggrega
 
 ## **🛠️ Architecture**  
 
-## Architecture
+## Architecture / Dashboard
 ![Pipeline Diagram](docs/images/architecture.png)
+![Pipeline Diagram](docs/images/dashboard.png)
+
 
 ## **🚀 Quick Start**  
 ### **1. Prerequisites**  
