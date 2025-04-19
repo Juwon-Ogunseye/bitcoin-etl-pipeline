@@ -1,6 +1,13 @@
 # **🚀 WBTC → S3 → ClickHouse Analytics Pipeline**  
 *High-performance blockchain ETL with etherium node, clickhouse, S3, Airflow, DBT, and Metabase*  
 
+# ** The Problem **
+Blockchain data, especially from high-activity networks like Ethereum, presents unique challenges that traditional data pipelines are ill-equipped to handle. The sheer volume of transactions, the complexity of decoding raw logs into meaningful events, and the need for both real-time and historical analysis create significant technical hurdles.
+
+For example, tracking Wrapped Bitcoin (WBTC) movements across Ethereum requires ingesting millions of on-chain events daily, decoding them into usable formats, and storing them in a way that supports fast, complex queries. Traditional databases often struggle with the scale and speed required, leading to bottlenecks in performance and usability. Additionally, ensuring data quality and consistency—especially when dealing with chain reorganizations or missing logs—adds another layer of complexity.
+
+Without a robust solution, valuable insights about WBTC flows, arbitrage opportunities, and institutional reserves remain locked within raw blockchain data, inaccessible to traders, auditors, and researchers. This pipeline was designed to address these challenges by providing a scalable, efficient, and reliable framework for extracting, processing, and analyzing blockchain data, enabling actionable insights in real-time.
+
 ### **🔍 Overview**  
 Pipeline Overview
 This data stack extracts raw Ethereum data (WBTC/Uniswap events) through multiple complementary methods: Chainlink RPC provides direct blockchain access for real-time queries, while Subgraph streams decoded event data, and Cryo handles bulk historical log extraction. The collected data is stored in a dual-layer system - S3 serves as a reliable backup for raw JSON logs, while ClickHouse functions as the primary analytical database optimized for high-throughput blockchain queries.
