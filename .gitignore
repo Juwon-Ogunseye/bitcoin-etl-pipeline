@@ -25,3 +25,5 @@ dags/cryo/crates/book
 /dags/cryo/book/
 /dags/subgraph_scripts/README.md
 /dags/subgraph_scripts/.gitignore
+/dags/cryo/README.md
+/dags/cryo/book.toml
