@@ -40,6 +40,9 @@ The transformation layer leverages DBT for SQL-based modeling and custom aggrega
 ## Dashboard
 ![Pipeline Diagram](docs/images/dashboard.png)
 
+## Scheduler
+![Pipeline Diagram](docs/images/airflow.png)
+
 
 ## **🚀 Quick Start**  
 ### **1. Prerequisites**  
