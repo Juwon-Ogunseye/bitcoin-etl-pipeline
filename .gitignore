@@ -16,3 +16,12 @@ awscliv2.zip
 
 # Local overrides
 #docker-compose.yml  # Replace with docker-compose.example.yml
+
+# Ignore specific files in cryo/crates
+dags/cryo/crates/book
+/dags/cryo/crates/python/python
+/dags/cryo/crates/python/python_tests
+/dags/cryo/crates/python/README.md
+/dags/cryo/book/
+/dags/subgraph_scripts/README.md
+/dags/subgraph_scripts/.gitignore
