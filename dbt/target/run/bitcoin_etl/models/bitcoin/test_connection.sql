@@ -1,6 +1,6 @@
 
 
-  create view `bitcoin_default`.`test_connection` 
+  create view `bitcoin_default`.`test_connection__dbt_tmp` 
   
     
     

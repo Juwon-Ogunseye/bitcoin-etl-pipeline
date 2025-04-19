@@ -1,6 +1,6 @@
 
 
-  create view `bitcoin`.`top_10_movers_by_volume` 
+  create view `bitcoin`.`top_10_movers_by_volume__dbt_tmp` 
   
     
     

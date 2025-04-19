@@ -3588,3 +3588,898 @@ ORDER BY p.pair_id, p.provider_rank
 [0m16:36:38.026773 [debug] [MainThread]: Command `dbt run` succeeded at 16:36:38.026180 after 16.94 seconds
 [0m16:36:38.028660 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff94ee1a340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff94ca48070>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff94c9b8100>]}
 [0m16:36:38.030453 [debug] [MainThread]: Flushing usage events
+[0m11:09:35.294144 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff7e8550b20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff7e8a51c10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff7e63864c0>]}
+
+
+============================== 11:09:35.321217 | eb5cacbd-71e2-47c6-949b-35e7826a4705 ==============================
+[0m11:09:35.321217 [info ] [MainThread]: Running with dbt=1.7.11
+[0m11:09:35.323241 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/opt/airflow/dbt/logs', 'profiles_dir': '/opt/airflow/dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt debug --project-dir /opt/airflow/dbt', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m11:09:35.325428 [info ] [MainThread]: dbt version: 1.7.11
+[0m11:09:35.327008 [info ] [MainThread]: python version: 3.9.18
+[0m11:09:35.328321 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m11:09:35.329937 [info ] [MainThread]: os info: Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.31
+[0m11:09:35.727119 [info ] [MainThread]: Using profiles dir at /opt/airflow/dbt
+[0m11:09:35.728736 [info ] [MainThread]: Using profiles.yml file at /opt/airflow/dbt/profiles.yml
+[0m11:09:35.730099 [info ] [MainThread]: Using dbt_project.yml file at /opt/airflow/dbt/dbt_project.yml
+[0m11:09:35.732573 [info ] [MainThread]: adapter type: clickhouse
+[0m11:09:35.734773 [info ] [MainThread]: adapter version: 1.7.0
+[0m11:09:35.988610 [info ] [MainThread]: Configuration:
+[0m11:09:35.991524 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m11:09:35.994485 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m11:09:35.996933 [info ] [MainThread]: Required dependencies:
+[0m11:09:35.999393 [debug] [MainThread]: Executing "git --help"
+[0m11:09:36.060501 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone             Clone a repository into a new directory\n   init              Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add               Add file contents to the index\n   mv                Move or rename a file, a directory, or a symlink\n   restore           Restore working tree files\n   rm                Remove files from the working tree and from the index\n   sparse-checkout   Initialize and modify the sparse-checkout\n\nexamine the history and state (see also: git help revisions)\n   bisect            Use binary search to find the commit that introduced a bug\n   diff              Show changes between commits, commit and working tree, etc\n   grep              Print lines matching a pattern\n   log               Show commit logs\n   show              Show various types of objects\n   status            Show the working tree status\n\ngrow, mark and tweak your common history\n   branch            List, create, or delete branches\n   commit            Record changes to the repository\n   merge             Join two or more development histories together\n   rebase            Reapply commits on top of another base tip\n   reset             Reset current HEAD to the specified state\n   switch            Switch branches\n   tag               Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch             Download objects and refs from another repository\n   pull              Fetch from and integrate with another repository or a local branch\n   push              Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m11:09:36.064435 [debug] [MainThread]: STDERR: "b''"
+[0m11:09:36.066925 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m11:09:36.069273 [info ] [MainThread]: Connection:
+[0m11:09:36.072822 [info ] [MainThread]:   driver: None
+[0m11:09:36.074604 [info ] [MainThread]:   host: clickhouse
+[0m11:09:36.077018 [info ] [MainThread]:   port: 8123
+[0m11:09:36.079229 [info ] [MainThread]:   user: admin
+[0m11:09:36.081765 [info ] [MainThread]:   schema: bitcoin
+[0m11:09:36.083889 [info ] [MainThread]:   retries: 1
+[0m11:09:36.086064 [info ] [MainThread]:   database_engine: None
+[0m11:09:36.088018 [info ] [MainThread]:   cluster_mode: False
+[0m11:09:36.090448 [info ] [MainThread]:   secure: False
+[0m11:09:36.092715 [info ] [MainThread]:   verify: True
+[0m11:09:36.094725 [info ] [MainThread]:   connect_timeout: 10
+[0m11:09:36.096703 [info ] [MainThread]:   send_receive_timeout: 300
+[0m11:09:36.098609 [info ] [MainThread]:   sync_request_timeout: 5
+[0m11:09:36.100580 [info ] [MainThread]:   compress_block_size: 1048576
+[0m11:09:36.102961 [info ] [MainThread]:   compression: 
+[0m11:09:36.104754 [info ] [MainThread]:   check_exchange: True
+[0m11:09:36.106246 [info ] [MainThread]:   custom_settings: None
+[0m11:09:36.107814 [info ] [MainThread]:   use_lw_deletes: False
+[0m11:09:36.109585 [info ] [MainThread]:   allow_automatic_deduplication: False
+[0m11:09:36.112576 [info ] [MainThread]: Registered adapter: clickhouse=1.7.0
+[0m11:09:36.116234 [debug] [MainThread]: Acquiring new clickhouse connection 'debug'
+[0m11:09:36.118487 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:09:38.386297 [debug] [MainThread]: dbt_clickhouse adapter: On debug: select 1 as id...
+[0m11:09:38.398394 [debug] [MainThread]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:09:38.401967 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m11:09:38.403877 [info ] [MainThread]: [32mAll checks passed![0m
+[0m11:09:38.410543 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 3.2774925, "process_user_time": 13.681629, "process_kernel_time": 6.832587, "process_mem_max_rss": "219400", "process_in_blocks": "736", "process_out_blocks": "24"}
+[0m11:09:38.413923 [debug] [MainThread]: Command `dbt debug` succeeded at 11:09:38.412898 after 3.28 seconds
+[0m11:09:38.416433 [debug] [MainThread]: Connection 'debug' was left open.
+[0m11:09:38.418436 [debug] [MainThread]: On debug: Close
+[0m11:09:38.420576 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff7e8550b20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff7e600c9a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff7ea0b45b0>]}
+[0m11:09:38.422576 [debug] [MainThread]: Flushing usage events
+[0m11:09:52.832118 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f491b342b20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4919178fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4919178340>]}
+
+
+============================== 11:09:52.862042 | 92cde274-d953-4a99-9e32-008e8c26068c ==============================
+[0m11:09:52.862042 [info ] [MainThread]: Running with dbt=1.7.11
+[0m11:09:52.864533 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/opt/airflow/dbt/logs', 'version_check': 'True', 'profiles_dir': '/opt/airflow/dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt run --project-dir /opt/airflow/dbt', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:09:54.303205 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f49190a9f10>]}
+[0m11:09:54.648142 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4919004b20>]}
+[0m11:09:54.651399 [info ] [MainThread]: Registered adapter: clickhouse=1.7.0
+[0m11:09:54.688378 [debug] [MainThread]: checksum: 1b58ec263fbd34ee8091684d6a2f6c1ad2902b1459e632a74eb63768af36ddb7, vars: {}, profile: , target: , version: 1.7.11
+[0m11:09:54.774620 [info ] [MainThread]: Unable to do partial parsing because profile has changed
+[0m11:09:54.776919 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4919065040>]}
+[0m11:10:03.881083 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f490b1130d0>]}
+[0m11:10:04.076985 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4918f90e80>]}
+[0m11:10:04.079753 [info ] [MainThread]: Found 10 models, 20 tests, 5 sources, 0 exposures, 0 metrics, 421 macros, 0 groups, 0 semantic models
+[0m11:10:04.081858 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4918e4de50>]}
+[0m11:10:04.095831 [info ] [MainThread]: 
+[0m11:10:04.102142 [debug] [MainThread]: Acquiring new clickhouse connection 'master'
+[0m11:10:04.122903 [debug] [ThreadPool]: Acquiring new clickhouse connection 'list_'
+[0m11:10:04.207542 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:10:06.181763 [debug] [ThreadPool]: dbt_clickhouse adapter: On list_: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "connection_name": "list_"} */
+
+    select name from system.databases
+  ...
+[0m11:10:06.195973 [debug] [ThreadPool]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:06.214190 [debug] [ThreadPool]: dbt_clickhouse adapter: On list_: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "connection_name": "list_"} */
+
+    select name from system.databases
+  ...
+[0m11:10:06.227443 [debug] [ThreadPool]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:06.251118 [debug] [ThreadPool]: dbt_clickhouse adapter: On list_: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "connection_name": "list_"} */
+
+    select name from system.databases
+  ...
+[0m11:10:06.267288 [debug] [ThreadPool]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:06.280420 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_, now list__bitcoin_bitcoin_derived)
+[0m11:10:06.314244 [debug] [ThreadPool]: dbt_clickhouse adapter: On list__bitcoin_bitcoin_derived: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "connection_name": "list__bitcoin_bitcoin_derived"} */
+select
+      t.name as name,
+      t.database as schema,
+      if(engine not in ('MaterializedView', 'View'), 'table', 'view') as type,
+      db.engine as db_engine,0 as is_on_cluster
+          from system.tables as t join system.databases as db on t.database = db.name
+        where schema = 'bitcoin_bitcoin_derived'
+      
+
+  ...
+[0m11:10:06.546138 [debug] [ThreadPool]: dbt_clickhouse adapter: SQL status: OK in 0.23 seconds
+[0m11:10:06.557257 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list__bitcoin_bitcoin_derived, now list__bitcoin_default)
+[0m11:10:06.575298 [debug] [ThreadPool]: dbt_clickhouse adapter: On list__bitcoin_default: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "connection_name": "list__bitcoin_default"} */
+select
+      t.name as name,
+      t.database as schema,
+      if(engine not in ('MaterializedView', 'View'), 'table', 'view') as type,
+      db.engine as db_engine,0 as is_on_cluster
+          from system.tables as t join system.databases as db on t.database = db.name
+        where schema = 'bitcoin_default'
+      
+
+  ...
+[0m11:10:06.641731 [debug] [ThreadPool]: dbt_clickhouse adapter: SQL status: OK in 0.06 seconds
+[0m11:10:06.651820 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list__bitcoin_default, now list__bitcoin)
+[0m11:10:06.670656 [debug] [ThreadPool]: dbt_clickhouse adapter: On list__bitcoin: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "connection_name": "list__bitcoin"} */
+select
+      t.name as name,
+      t.database as schema,
+      if(engine not in ('MaterializedView', 'View'), 'table', 'view') as type,
+      db.engine as db_engine,0 as is_on_cluster
+          from system.tables as t join system.databases as db on t.database = db.name
+        where schema = 'bitcoin'
+      
+
+  ...
+[0m11:10:06.738147 [debug] [ThreadPool]: dbt_clickhouse adapter: SQL status: OK in 0.06 seconds
+[0m11:10:06.777120 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4918e4deb0>]}
+[0m11:10:06.781254 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:10:06.783421 [info ] [MainThread]: 
+[0m11:10:06.819547 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.example
+[0m11:10:06.822635 [info ] [Thread-1  ]: 1 of 10 START sql view model `bitcoin`.`example` ............................... [RUN]
+[0m11:10:06.826233 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list__bitcoin, now model.bitcoin_etl.example)
+[0m11:10:06.828771 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.example
+[0m11:10:06.873382 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.example"
+[0m11:10:06.881988 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.example (compile): 11:10:06.830137 => 11:10:06.880119
+[0m11:10:06.885551 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.example
+[0m11:10:07.152016 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.example"
+[0m11:10:07.160497 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.example: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.example"} */
+
+
+  create view `bitcoin`.`example__dbt_tmp` 
+  
+    
+    
+  as (
+    
+
+SELECT 
+    transaction_id AS tx_hash,
+    transaction_timestamp AS timestamp,
+    pair_token0_symbol,
+    pair_token1_symbol,
+    amount_u_s_d AS value_usd,
+    amount0_in,
+    amount1_in,
+    amount0_out,
+    amount1_out
+FROM `bitcoin`.`swaps_latest`
+  )...
+[0m11:10:07.199073 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.04 seconds
+[0m11:10:07.235509 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.example: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.example"} */
+
+    drop table if exists `bitcoin`.`example__dbt_backup` 
+  
+  ...
+[0m11:10:07.243919 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.250003 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.example: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.example"} */
+
+    rename table `bitcoin`.`example` to `bitcoin`.`example__dbt_backup` 
+  
+  ...
+[0m11:10:07.260775 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.278610 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.example: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.example"} */
+
+    drop table if exists `bitcoin`.`example` 
+  
+  ...
+[0m11:10:07.286414 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.293324 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.example: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.example"} */
+
+    rename table `bitcoin`.`example__dbt_tmp` to `bitcoin`.`example` 
+  
+  ...
+[0m11:10:07.303628 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.451513 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.example: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.example"} */
+
+    drop table if exists `bitcoin`.`example__dbt_backup` 
+  ...
+[0m11:10:07.463966 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.471433 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.example (execute): 11:10:06.887598 => 11:10:07.470179
+[0m11:10:07.474974 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b7f6e580>]}
+[0m11:10:07.479856 [info ] [Thread-1  ]: 1 of 10 OK created sql view model `bitcoin`.`example` .......................... [[32mOK[0m in 0.65s]
+[0m11:10:07.484026 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.example
+[0m11:10:07.487355 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.new_pairs_analysis
+[0m11:10:07.491310 [info ] [Thread-1  ]: 2 of 10 START sql view model `bitcoin`.`new_pairs_analysis` .................... [RUN]
+[0m11:10:07.495631 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.bitcoin_etl.example, now model.bitcoin_etl.new_pairs_analysis)
+[0m11:10:07.498000 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.new_pairs_analysis
+[0m11:10:07.519585 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.new_pairs_analysis"
+[0m11:10:07.527009 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.new_pairs_analysis (compile): 11:10:07.499884 => 11:10:07.525321
+[0m11:10:07.530529 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.new_pairs_analysis
+[0m11:10:07.554727 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.new_pairs_analysis"
+[0m11:10:07.559849 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.new_pairs_analysis: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.new_pairs_analysis"} */
+
+
+  create view `bitcoin`.`new_pairs_analysis__dbt_tmp` 
+  
+    
+    
+  as (
+    
+
+WITH pair_metrics AS (
+  SELECT
+    id AS pair_address,
+    token0_symbol || '-' || token1_symbol AS pair_name,
+    parseDateTimeBestEffort(created_at_timestamp) AS creation_time,
+    created_at_block_number,
+    token0_id,
+    token1_id,
+    reserve_u_s_d,
+    reserve_e_t_h,
+    reserve_u_s_d / NULLIF(reserve_e_t_h, 0) AS usd_per_eth_price,
+    -- Calculate hourly age of the pair
+    dateDiff('hour', creation_time, now()) AS hours_since_creation
+  FROM `bitcoin`.`pairs_recently_created`
+)
+
+SELECT
+  pair_address,
+  pair_name,
+  creation_time,
+  hours_since_creation,
+  reserve_u_s_d AS total_liquidity_usd,
+  reserve_e_t_h AS total_liquidity_eth,
+  usd_per_eth_price,
+  CASE
+    WHEN reserve_u_s_d > 1000000 THEN 'Large'
+    WHEN reserve_u_s_d > 100000 THEN 'Medium'
+    ELSE 'Small'
+  END AS liquidity_size,
+  -- Normalize by pair age
+  reserve_u_s_d / NULLIF(hours_since_creation, 0) AS hourly_liquidity_growth_usd
+FROM pair_metrics
+ORDER BY creation_time DESC
+  )...
+[0m11:10:07.604350 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.04 seconds
+[0m11:10:07.624950 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.new_pairs_analysis: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.new_pairs_analysis"} */
+
+    drop table if exists `bitcoin`.`new_pairs_analysis__dbt_backup` 
+  
+  ...
+[0m11:10:07.634480 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.640014 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.new_pairs_analysis: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.new_pairs_analysis"} */
+
+    rename table `bitcoin`.`new_pairs_analysis` to `bitcoin`.`new_pairs_analysis__dbt_backup` 
+  
+  ...
+[0m11:10:07.649492 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.667017 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.new_pairs_analysis: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.new_pairs_analysis"} */
+
+    drop table if exists `bitcoin`.`new_pairs_analysis` 
+  
+  ...
+[0m11:10:07.678057 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.684965 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.new_pairs_analysis: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.new_pairs_analysis"} */
+
+    rename table `bitcoin`.`new_pairs_analysis__dbt_tmp` to `bitcoin`.`new_pairs_analysis` 
+  
+  ...
+[0m11:10:07.694564 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.722739 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.new_pairs_analysis: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.new_pairs_analysis"} */
+
+    drop table if exists `bitcoin`.`new_pairs_analysis__dbt_backup` 
+  ...
+[0m11:10:07.732011 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:07.741605 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.new_pairs_analysis (execute): 11:10:07.532157 => 11:10:07.739842
+[0m11:10:07.745646 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b7f6e6a0>]}
+[0m11:10:07.748604 [info ] [Thread-1  ]: 2 of 10 OK created sql view model `bitcoin`.`new_pairs_analysis` ............... [[32mOK[0m in 0.25s]
+[0m11:10:07.752303 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.new_pairs_analysis
+[0m11:10:07.755778 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.pairs_recently_created
+[0m11:10:07.759937 [info ] [Thread-1  ]: 3 of 10 START sql table model `bitcoin_bitcoin_derived`.`pairs_recently_created`  [RUN]
+[0m11:10:07.764521 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.bitcoin_etl.new_pairs_analysis, now model.bitcoin_etl.pairs_recently_created)
+[0m11:10:07.767706 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.pairs_recently_created
+[0m11:10:07.789636 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.pairs_recently_created"
+[0m11:10:07.799514 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.pairs_recently_created (compile): 11:10:07.769683 => 11:10:07.796969
+[0m11:10:07.803547 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.pairs_recently_created
+[0m11:10:08.114845 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pairs_recently_created: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pairs_recently_created"} */
+
+            
+
+    
+        create table `bitcoin_bitcoin_derived`.`pairs_recently_created__dbt_backup`
+        
+  
+        
+  engine = MergeTree()
+        
+      order by (tuple())
+        
+        
+        SETTINGS  replicated_deduplication_window=0
+
+            empty
+          as (
+            
+
+SELECT
+    id as pair_id,
+    parseDateTimeBestEffort(created_at_timestamp) as created_at_timestamp,
+    created_at_block_number,
+    token0_symbol,
+    token0_id,
+    token1_symbol,
+    token1_id,
+    reserve_u_s_d as total_liquidity_usd,
+    reserve_e_t_h as total_liquidity_eth,
+    concat(token0_symbol, '-', token1_symbol) as pair_symbol
+FROM `bitcoin`.`pairs_recently_created`
+          )
+        ...
+[0m11:10:08.207614 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.09 seconds
+[0m11:10:08.267273 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pairs_recently_created: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pairs_recently_created"} */
+
+    select name, type from system.columns where table = 'pairs_recently_created__dbt_backup'
+    
+      and database = 'bitcoin_bitcoin_derived'
+    
+    order by position
+  ...
+[0m11:10:08.293741 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.02 seconds
+[0m11:10:08.312940 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.pairs_recently_created"
+[0m11:10:08.319549 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pairs_recently_created: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pairs_recently_created"} */
+
+  
+    
+    
+    
+        
+        insert into `bitcoin_bitcoin_derived`.`pairs_recently_created__dbt_backup`
+        ("pair_id", "created_at_timestamp", "created_at_block_number", "token0_symbol", "token0_id", "token1_symbol", "token1_id", "total_liquidity_usd", "total_liquidity_eth", "pair_symbol")
+
+SELECT
+    id as pair_id,
+    parseDateTimeBestEffort(created_at_timestamp) as created_at_timestamp,
+    created_at_block_number,
+    token0_symbol,
+    token0_id,
+    token1_symbol,
+    token1_id,
+    reserve_u_s_d as total_liquidity_usd,
+    reserve_e_t_h as total_liquidity_eth,
+    concat(token0_symbol, '-', token1_symbol) as pair_symbol
+FROM `bitcoin`.`pairs_recently_created`
+  
+  ...
+[0m11:10:08.363613 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.04 seconds
+[0m11:10:08.396095 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pairs_recently_created: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pairs_recently_created"} */
+EXCHANGE TABLES `bitcoin_bitcoin_derived`.`pairs_recently_created__dbt_backup` AND `bitcoin_bitcoin_derived`.`pairs_recently_created` 
+  
+  ...
+[0m11:10:08.412583 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:08.447394 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pairs_recently_created: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pairs_recently_created"} */
+
+    drop table if exists `bitcoin_bitcoin_derived`.`pairs_recently_created__dbt_backup` 
+  ...
+[0m11:10:08.509698 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.06 seconds
+[0m11:10:08.529076 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.pairs_recently_created (execute): 11:10:07.806817 => 11:10:08.527483
+[0m11:10:08.544720 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b7eaa910>]}
+[0m11:10:08.551011 [info ] [Thread-1  ]: 3 of 10 OK created sql table model `bitcoin_bitcoin_derived`.`pairs_recently_created`  [[32mOK[0m in 0.78s]
+[0m11:10:08.556816 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.pairs_recently_created
+[0m11:10:08.560991 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.pool_concentration
+[0m11:10:08.566499 [info ] [Thread-1  ]: 4 of 10 START sql view model `bitcoin`.`pool_concentration` .................... [RUN]
+[0m11:10:08.577959 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.bitcoin_etl.pairs_recently_created, now model.bitcoin_etl.pool_concentration)
+[0m11:10:08.581266 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.pool_concentration
+[0m11:10:08.621151 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.pool_concentration"
+[0m11:10:08.626899 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.pool_concentration (compile): 11:10:08.583391 => 11:10:08.624996
+[0m11:10:08.632404 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.pool_concentration
+[0m11:10:08.671774 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.pool_concentration"
+[0m11:10:08.680187 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pool_concentration: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pool_concentration"} */
+
+
+  create view `bitcoin`.`pool_concentration__dbt_tmp` 
+  
+    
+    
+  as (
+    
+
+SELECT
+  pair_token0_symbol || '-' || pair_token1_symbol AS pair_name,
+  liquidity_token_balance,
+  liquidity_token_balance / SUM(liquidity_token_balance) OVER () AS overall_share_pct,
+  CASE
+    WHEN liquidity_token_balance > 1000 THEN 'Whale'
+    WHEN liquidity_token_balance > 100 THEN 'Dolphin'
+    ELSE 'Minnow'
+  END AS provider_size
+FROM `bitcoin`.`liquidity_positions_largest`
+ORDER BY liquidity_token_balance DESC
+  )...
+[0m11:10:08.757467 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.07 seconds
+[0m11:10:08.783288 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pool_concentration: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pool_concentration"} */
+
+    drop table if exists `bitcoin`.`pool_concentration__dbt_backup` 
+  
+  ...
+[0m11:10:08.794153 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:08.799712 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pool_concentration: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pool_concentration"} */
+
+    rename table `bitcoin`.`pool_concentration` to `bitcoin`.`pool_concentration__dbt_backup` 
+  
+  ...
+[0m11:10:08.809776 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:08.831900 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pool_concentration: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pool_concentration"} */
+
+    drop table if exists `bitcoin`.`pool_concentration` 
+  
+  ...
+[0m11:10:08.840936 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:08.846543 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pool_concentration: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pool_concentration"} */
+
+    rename table `bitcoin`.`pool_concentration__dbt_tmp` to `bitcoin`.`pool_concentration` 
+  
+  ...
+[0m11:10:08.856554 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:08.881403 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.pool_concentration: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.pool_concentration"} */
+
+    drop table if exists `bitcoin`.`pool_concentration__dbt_backup` 
+  ...
+[0m11:10:08.891827 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:08.900436 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.pool_concentration (execute): 11:10:08.637855 => 11:10:08.899030
+[0m11:10:08.908921 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b7eb3f40>]}
+[0m11:10:08.914667 [info ] [Thread-1  ]: 4 of 10 OK created sql view model `bitcoin`.`pool_concentration` ............... [[32mOK[0m in 0.33s]
+[0m11:10:08.921094 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.pool_concentration
+[0m11:10:08.928372 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.raw_transactions
+[0m11:10:08.932351 [info ] [Thread-1  ]: 5 of 10 START sql view model `bitcoin`.`raw_transactions` ...................... [RUN]
+[0m11:10:08.938567 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.bitcoin_etl.pool_concentration, now model.bitcoin_etl.raw_transactions)
+[0m11:10:08.942866 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.raw_transactions
+[0m11:10:08.962547 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.raw_transactions"
+[0m11:10:08.971913 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.raw_transactions (compile): 11:10:08.945362 => 11:10:08.968792
+[0m11:10:08.976140 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.raw_transactions
+[0m11:10:09.041338 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.raw_transactions"
+[0m11:10:09.052698 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.raw_transactions: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.raw_transactions"} */
+
+
+  create view `bitcoin`.`raw_transactions__dbt_tmp` 
+  
+    
+    
+  as (
+    
+
+SELECT 
+    transaction_id AS tx_hash,
+    transaction_timestamp AS timestamp,
+    amount_u_s_d AS value_usd,
+    pair_token0_symbol || '/' || pair_token1_symbol AS trading_pair
+FROM `bitcoin`.`swaps_latest`
+LIMIT 1000
+  )...
+[0m11:10:09.094299 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.04 seconds
+[0m11:10:09.134742 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.raw_transactions: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.raw_transactions"} */
+
+    drop table if exists `bitcoin`.`raw_transactions__dbt_backup` 
+  
+  ...
+[0m11:10:09.149777 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:09.161022 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.raw_transactions: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.raw_transactions"} */
+
+    rename table `bitcoin`.`raw_transactions` to `bitcoin`.`raw_transactions__dbt_backup` 
+  
+  ...
+[0m11:10:09.175820 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:09.201358 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.raw_transactions: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.raw_transactions"} */
+
+    drop table if exists `bitcoin`.`raw_transactions` 
+  
+  ...
+[0m11:10:09.214821 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:09.224894 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.raw_transactions: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.raw_transactions"} */
+
+    rename table `bitcoin`.`raw_transactions__dbt_tmp` to `bitcoin`.`raw_transactions` 
+  
+  ...
+[0m11:10:09.238307 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:09.282546 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.raw_transactions: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.raw_transactions"} */
+
+    drop table if exists `bitcoin`.`raw_transactions__dbt_backup` 
+  ...
+[0m11:10:09.296031 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:09.313142 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.raw_transactions (execute): 11:10:08.978843 => 11:10:09.311309
+[0m11:10:09.319635 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b7f4ebe0>]}
+[0m11:10:09.324731 [info ] [Thread-1  ]: 5 of 10 OK created sql view model `bitcoin`.`raw_transactions` ................. [[32mOK[0m in 0.38s]
+[0m11:10:09.331499 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.raw_transactions
+[0m11:10:09.336033 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.swaps_latest_for_pair
+[0m11:10:09.340882 [info ] [Thread-1  ]: 6 of 10 START sql view model `bitcoin_bitcoin_derived`.`swaps_latest_for_pair` . [RUN]
+[0m11:10:09.347429 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.bitcoin_etl.raw_transactions, now model.bitcoin_etl.swaps_latest_for_pair)
+[0m11:10:09.351257 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.swaps_latest_for_pair
+[0m11:10:09.386399 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.swaps_latest_for_pair"
+[0m11:10:09.397423 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.swaps_latest_for_pair (compile): 11:10:09.353085 => 11:10:09.394914
+[0m11:10:09.402261 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.swaps_latest_for_pair
+[0m11:10:09.446913 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.swaps_latest_for_pair"
+[0m11:10:09.453437 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.swaps_latest_for_pair: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.swaps_latest_for_pair"} */
+
+
+  create view `bitcoin_bitcoin_derived`.`swaps_latest_for_pair__dbt_tmp` 
+  
+    
+    
+  as (
+    
+
+SELECT
+    id as swap_id,
+    transaction_id,
+    parseDateTimeBestEffort(transaction_timestamp) as transaction_timestamp,
+    pair_token0_symbol,
+    pair_token1_symbol,
+    amount0_in,
+    amount1_in,
+    amount0_out,
+    amount1_out,
+    amount_u_s_d as amount_usd,
+    -- Calculate derived metrics
+    concat(pair_token0_symbol, '-', pair_token1_symbol) as pair_symbol,
+    CASE 
+        WHEN amount0_in > 0 THEN pair_token0_symbol
+        WHEN amount1_in > 0 THEN pair_token1_symbol
+        ELSE NULL
+    END as token_in_symbol,
+    CASE 
+        WHEN amount0_out > 0 THEN pair_token0_symbol
+        WHEN amount1_out > 0 THEN pair_token1_symbol
+        ELSE NULL
+    END as token_out_symbol,
+    -- Calculate absolute amounts
+    greatest(amount0_in, amount1_in) as amount_in,
+    greatest(amount0_out, amount1_out) as amount_out,
+    -- Calculate swap direction
+    CASE
+        WHEN amount0_in > 0 AND amount1_out > 0 THEN 'token0_to_token1'
+        WHEN amount1_in > 0 AND amount0_out > 0 THEN 'token1_to_token0'
+        ELSE 'complex'
+    END as swap_direction
+FROM `bitcoin`.`swaps_latest_for_pair`
+  )...
+[0m11:10:09.518691 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.06 seconds
+[0m11:10:09.549489 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.swaps_latest_for_pair: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.swaps_latest_for_pair"} */
+
+    drop table if exists `bitcoin_bitcoin_derived`.`swaps_latest_for_pair__dbt_backup` 
+  
+  ...
+[0m11:10:09.572357 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.02 seconds
+[0m11:10:09.588622 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.swaps_latest_for_pair: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.swaps_latest_for_pair"} */
+
+    rename table `bitcoin_bitcoin_derived`.`swaps_latest_for_pair` to `bitcoin_bitcoin_derived`.`swaps_latest_for_pair__dbt_backup` 
+  
+  ...
+[0m11:10:09.614198 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:09.648800 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.swaps_latest_for_pair: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.swaps_latest_for_pair"} */
+
+    drop table if exists `bitcoin_bitcoin_derived`.`swaps_latest_for_pair` 
+  
+  ...
+[0m11:10:09.665532 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:09.683932 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.swaps_latest_for_pair: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.swaps_latest_for_pair"} */
+
+    rename table `bitcoin_bitcoin_derived`.`swaps_latest_for_pair__dbt_tmp` to `bitcoin_bitcoin_derived`.`swaps_latest_for_pair` 
+  
+  ...
+[0m11:10:09.705187 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.02 seconds
+[0m11:10:09.748117 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.swaps_latest_for_pair: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.swaps_latest_for_pair"} */
+
+    drop table if exists `bitcoin_bitcoin_derived`.`swaps_latest_for_pair__dbt_backup` 
+  ...
+[0m11:10:09.764257 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:09.778883 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.swaps_latest_for_pair (execute): 11:10:09.405575 => 11:10:09.775984
+[0m11:10:09.786801 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b6616fd0>]}
+[0m11:10:09.794318 [info ] [Thread-1  ]: 6 of 10 OK created sql view model `bitcoin_bitcoin_derived`.`swaps_latest_for_pair`  [[32mOK[0m in 0.44s]
+[0m11:10:09.801712 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.swaps_latest_for_pair
+[0m11:10:09.805967 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.test
+[0m11:10:09.812897 [info ] [Thread-1  ]: 7 of 10 START sql view model `bitcoin`.`test` .................................. [RUN]
+[0m11:10:09.821425 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.bitcoin_etl.swaps_latest_for_pair, now model.bitcoin_etl.test)
+[0m11:10:09.826224 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.test
+[0m11:10:09.846793 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.test"
+[0m11:10:09.853844 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.test (compile): 11:10:09.828522 => 11:10:09.852456
+[0m11:10:09.856708 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.test
+[0m11:10:09.895594 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.test"
+[0m11:10:09.901890 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test"} */
+
+
+  create view `bitcoin`.`test__dbt_tmp` 
+  
+    
+    
+  as (
+    SELECT 1 as test_value
+  )...
+[0m11:10:09.930660 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.02 seconds
+[0m11:10:09.958426 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test"} */
+
+    drop table if exists `bitcoin`.`test__dbt_backup` 
+  
+  ...
+[0m11:10:09.974084 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:09.994512 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test"} */
+
+    rename table `bitcoin`.`test` to `bitcoin`.`test__dbt_backup` 
+  
+  ...
+[0m11:10:10.035214 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.076696 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test"} */
+
+    drop table if exists `bitcoin`.`test` 
+  
+  ...
+[0m11:10:10.091381 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.106688 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test"} */
+
+    rename table `bitcoin`.`test__dbt_tmp` to `bitcoin`.`test` 
+  
+  ...
+[0m11:10:10.119321 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.161863 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test"} */
+
+    drop table if exists `bitcoin`.`test__dbt_backup` 
+  ...
+[0m11:10:10.176518 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.189875 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.test (execute): 11:10:09.858934 => 11:10:10.187121
+[0m11:10:10.197199 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b7e85c40>]}
+[0m11:10:10.201943 [info ] [Thread-1  ]: 7 of 10 OK created sql view model `bitcoin`.`test` ............................. [[32mOK[0m in 0.38s]
+[0m11:10:10.207982 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.test
+[0m11:10:10.211495 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.test_connection
+[0m11:10:10.215570 [info ] [Thread-1  ]: 8 of 10 START sql view model `bitcoin_default`.`test_connection` ............... [RUN]
+[0m11:10:10.220290 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.bitcoin_etl.test, now model.bitcoin_etl.test_connection)
+[0m11:10:10.223716 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.test_connection
+[0m11:10:10.242227 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.test_connection"
+[0m11:10:10.247863 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.test_connection (compile): 11:10:10.225518 => 11:10:10.246324
+[0m11:10:10.250804 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.test_connection
+[0m11:10:10.278409 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.test_connection"
+[0m11:10:10.282586 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test_connection: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test_connection"} */
+
+
+  create view `bitcoin_default`.`test_connection__dbt_tmp` 
+  
+    
+    
+  as (
+    -- models/test_connection.sql
+
+
+SELECT 'swaps_latest' AS table_name, 
+       count() AS row_count 
+FROM bitcoin.swaps_latest
+  )...
+[0m11:10:10.310394 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.02 seconds
+[0m11:10:10.332135 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test_connection: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test_connection"} */
+
+    drop table if exists `bitcoin_default`.`test_connection__dbt_backup` 
+  
+  ...
+[0m11:10:10.342694 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.351908 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test_connection: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test_connection"} */
+
+    rename table `bitcoin_default`.`test_connection` to `bitcoin_default`.`test_connection__dbt_backup` 
+  
+  ...
+[0m11:10:10.367571 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.388562 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test_connection: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test_connection"} */
+
+    drop table if exists `bitcoin_default`.`test_connection` 
+  
+  ...
+[0m11:10:10.397875 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.405603 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test_connection: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test_connection"} */
+
+    rename table `bitcoin_default`.`test_connection__dbt_tmp` to `bitcoin_default`.`test_connection` 
+  
+  ...
+[0m11:10:10.417292 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.451156 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.test_connection: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.test_connection"} */
+
+    drop table if exists `bitcoin_default`.`test_connection__dbt_backup` 
+  ...
+[0m11:10:10.462712 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.469751 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.test_connection (execute): 11:10:10.253499 => 11:10:10.468667
+[0m11:10:10.474833 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b7f3a040>]}
+[0m11:10:10.478206 [info ] [Thread-1  ]: 8 of 10 OK created sql view model `bitcoin_default`.`test_connection` .......... [[32mOK[0m in 0.26s]
+[0m11:10:10.481427 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.test_connection
+[0m11:10:10.484249 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.top_10_movers_by_volume
+[0m11:10:10.488245 [info ] [Thread-1  ]: 9 of 10 START sql view model `bitcoin`.`top_10_movers_by_volume` ............... [RUN]
+[0m11:10:10.491897 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.bitcoin_etl.test_connection, now model.bitcoin_etl.top_10_movers_by_volume)
+[0m11:10:10.494647 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.top_10_movers_by_volume
+[0m11:10:10.521036 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.top_10_movers_by_volume"
+[0m11:10:10.526068 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.top_10_movers_by_volume (compile): 11:10:10.496118 => 11:10:10.524659
+[0m11:10:10.528423 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.top_10_movers_by_volume
+[0m11:10:10.552955 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.top_10_movers_by_volume"
+[0m11:10:10.557434 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_10_movers_by_volume: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_10_movers_by_volume"} */
+
+
+  create view `bitcoin`.`top_10_movers_by_volume__dbt_tmp` 
+  
+    
+    
+  as (
+    
+
+WITH volume_calculations AS (
+  SELECT
+    from_address AS address,
+    -wbtc_amount AS volume -- Negative for outflows
+  FROM `bitcoin`.`erc20_transfers_wbtc`
+  
+  UNION ALL
+  
+  SELECT
+    to_address AS address,
+    wbtc_amount AS volume -- Positive for inflows
+  FROM `bitcoin`.`erc20_transfers_wbtc`
+),
+
+net_volume AS (
+  SELECT
+    address,
+    SUM(volume) AS net_volume,
+    SUM(CASE WHEN volume > 0 THEN volume ELSE 0 END) AS total_inflow,
+    SUM(CASE WHEN volume < 0 THEN ABS(volume) ELSE 0 END) AS total_outflow,
+    COUNT(*) AS transaction_count
+  FROM volume_calculations
+  GROUP BY address
+),
+
+ranked_volumes AS (
+  SELECT
+    address,
+    net_volume,
+    total_inflow,
+    total_outflow,
+    transaction_count,
+    RANK() OVER (ORDER BY ABS(net_volume) DESC) AS volume_rank
+  FROM net_volume
+)
+
+SELECT
+  address,
+  net_volume,
+  total_inflow,
+  total_outflow,
+  transaction_count,
+  volume_rank
+FROM ranked_volumes
+WHERE volume_rank <= 10
+ORDER BY volume_rank
+  )...
+[0m11:10:10.592471 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.03 seconds
+[0m11:10:10.609191 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_10_movers_by_volume: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_10_movers_by_volume"} */
+
+    drop table if exists `bitcoin`.`top_10_movers_by_volume__dbt_backup` 
+  
+  ...
+[0m11:10:10.617481 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.622646 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_10_movers_by_volume: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_10_movers_by_volume"} */
+
+    rename table `bitcoin`.`top_10_movers_by_volume` to `bitcoin`.`top_10_movers_by_volume__dbt_backup` 
+  
+  ...
+[0m11:10:10.632829 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.655919 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_10_movers_by_volume: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_10_movers_by_volume"} */
+
+    drop table if exists `bitcoin`.`top_10_movers_by_volume` 
+  
+  ...
+[0m11:10:10.666096 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.672182 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_10_movers_by_volume: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_10_movers_by_volume"} */
+
+    rename table `bitcoin`.`top_10_movers_by_volume__dbt_tmp` to `bitcoin`.`top_10_movers_by_volume` 
+  
+  ...
+[0m11:10:10.683370 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.712209 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_10_movers_by_volume: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_10_movers_by_volume"} */
+
+    drop table if exists `bitcoin`.`top_10_movers_by_volume__dbt_backup` 
+  ...
+[0m11:10:10.722363 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.731805 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.top_10_movers_by_volume (execute): 11:10:10.529819 => 11:10:10.730759
+[0m11:10:10.736276 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b6580d90>]}
+[0m11:10:10.740857 [info ] [Thread-1  ]: 9 of 10 OK created sql view model `bitcoin`.`top_10_movers_by_volume` .......... [[32mOK[0m in 0.25s]
+[0m11:10:10.745104 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.top_10_movers_by_volume
+[0m11:10:10.748432 [debug] [Thread-1  ]: Began running node model.bitcoin_etl.top_liquidity_providers
+[0m11:10:10.752262 [info ] [Thread-1  ]: 10 of 10 START sql view model `bitcoin`.`top_liquidity_providers` .............. [RUN]
+[0m11:10:10.757330 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.bitcoin_etl.top_10_movers_by_volume, now model.bitcoin_etl.top_liquidity_providers)
+[0m11:10:10.760623 [debug] [Thread-1  ]: Began compiling node model.bitcoin_etl.top_liquidity_providers
+[0m11:10:10.778674 [debug] [Thread-1  ]: Writing injected SQL for node "model.bitcoin_etl.top_liquidity_providers"
+[0m11:10:10.783962 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.top_liquidity_providers (compile): 11:10:10.762318 => 11:10:10.782367
+[0m11:10:10.786586 [debug] [Thread-1  ]: Began executing node model.bitcoin_etl.top_liquidity_providers
+[0m11:10:10.815649 [debug] [Thread-1  ]: Writing runtime sql for node "model.bitcoin_etl.top_liquidity_providers"
+[0m11:10:10.821611 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_liquidity_providers: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_liquidity_providers"} */
+
+
+  create view `bitcoin`.`top_liquidity_providers__dbt_tmp` 
+  
+    
+    
+  as (
+    
+
+WITH pool_stats AS (
+  SELECT
+    pair_id,
+    pair_token0_symbol || '-' || pair_token1_symbol AS pair_name,
+    COUNT(DISTINCT user_id) AS unique_providers,
+    SUM(liquidity_token_balance) AS total_liquidity
+  FROM `bitcoin`.`liquidity_positions_largest`
+  GROUP BY 1, 2
+),
+
+provider_rankings AS (
+  SELECT
+    user_id,
+    pair_id,
+    pair_token0_symbol || '-' || pair_token1_symbol AS pair_name,
+    liquidity_token_balance,
+    liquidity_token_balance / SUM(liquidity_token_balance) OVER (PARTITION BY pair_id) AS pool_share_pct,
+    RANK() OVER (PARTITION BY pair_id ORDER BY liquidity_token_balance DESC) AS provider_rank
+  FROM `bitcoin`.`liquidity_positions_largest`
+)
+
+SELECT
+  p.user_id,
+  p.pair_id,
+  p.pair_name,
+  p.liquidity_token_balance,
+  p.pool_share_pct,
+  p.provider_rank,
+  s.total_liquidity,
+  s.unique_providers
+FROM provider_rankings p
+JOIN pool_stats s ON p.pair_id = s.pair_id
+WHERE p.provider_rank <= 10  -- Top 10 providers per pool
+ORDER BY p.pair_id, p.provider_rank
+  )...
+[0m11:10:10.854093 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.03 seconds
+[0m11:10:10.877633 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_liquidity_providers: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_liquidity_providers"} */
+
+    drop table if exists `bitcoin`.`top_liquidity_providers__dbt_backup` 
+  
+  ...
+[0m11:10:10.886697 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.894703 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_liquidity_providers: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_liquidity_providers"} */
+
+    rename table `bitcoin`.`top_liquidity_providers` to `bitcoin`.`top_liquidity_providers__dbt_backup` 
+  
+  ...
+[0m11:10:10.905313 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.922643 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_liquidity_providers: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_liquidity_providers"} */
+
+    drop table if exists `bitcoin`.`top_liquidity_providers` 
+  
+  ...
+[0m11:10:10.932636 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.940462 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_liquidity_providers: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_liquidity_providers"} */
+
+    rename table `bitcoin`.`top_liquidity_providers__dbt_tmp` to `bitcoin`.`top_liquidity_providers` 
+  
+  ...
+[0m11:10:10.951174 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.01 seconds
+[0m11:10:10.984916 [debug] [Thread-1  ]: dbt_clickhouse adapter: On model.bitcoin_etl.top_liquidity_providers: /* {"app": "dbt", "dbt_version": "1.7.11", "profile_name": "bitcoin_etl", "target_name": "dev", "node_id": "model.bitcoin_etl.top_liquidity_providers"} */
+
+    drop table if exists `bitcoin`.`top_liquidity_providers__dbt_backup` 
+  ...
+[0m11:10:11.004958 [debug] [Thread-1  ]: dbt_clickhouse adapter: SQL status: OK in 0.02 seconds
+[0m11:10:11.025261 [debug] [Thread-1  ]: Timing info for model.bitcoin_etl.top_liquidity_providers (execute): 11:10:10.788691 => 11:10:11.023417
+[0m11:10:11.038941 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '92cde274-d953-4a99-9e32-008e8c26068c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b7e85c40>]}
+[0m11:10:11.043556 [info ] [Thread-1  ]: 10 of 10 OK created sql view model `bitcoin`.`top_liquidity_providers` ......... [[32mOK[0m in 0.28s]
+[0m11:10:11.053487 [debug] [Thread-1  ]: Finished running node model.bitcoin_etl.top_liquidity_providers
+[0m11:10:11.064179 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:10:11.067596 [debug] [MainThread]: Connection 'model.bitcoin_etl.top_liquidity_providers' was left open.
+[0m11:10:11.070753 [debug] [MainThread]: On model.bitcoin_etl.top_liquidity_providers: Close
+[0m11:10:11.074673 [info ] [MainThread]: 
+[0m11:10:11.078610 [info ] [MainThread]: Finished running 9 view models, 1 table model in 0 hours 0 minutes and 6.97 seconds (6.97s).
+[0m11:10:11.089552 [debug] [MainThread]: Command end result
+[0m11:10:11.145067 [info ] [MainThread]: 
+[0m11:10:11.147601 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:10:11.149910 [info ] [MainThread]: 
+[0m11:10:11.152081 [info ] [MainThread]: Done. PASS=10 WARN=0 ERROR=0 SKIP=0 TOTAL=10
+[0m11:10:11.156164 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 18.508331, "process_user_time": 28.603565, "process_kernel_time": 2.516794, "process_mem_max_rss": "222548", "process_in_blocks": "416", "process_out_blocks": "3424"}
+[0m11:10:11.159018 [debug] [MainThread]: Command `dbt run` succeeded at 11:10:11.158338 after 18.51 seconds
+[0m11:10:11.161738 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f491b342b20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b6622bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f48b6627d90>]}
+[0m11:10:11.164555 [debug] [MainThread]: Flushing usage events

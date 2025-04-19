@@ -1,6 +1,6 @@
 
 
-  create view `bitcoin_bitcoin_derived`.`swaps_latest_for_pair` 
+  create view `bitcoin_bitcoin_derived`.`swaps_latest_for_pair__dbt_tmp` 
   
     
     

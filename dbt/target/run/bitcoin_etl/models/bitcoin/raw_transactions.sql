@@ -1,6 +1,6 @@
 
 
-  create view `bitcoin`.`raw_transactions` 
+  create view `bitcoin`.`raw_transactions__dbt_tmp` 
   
     
     

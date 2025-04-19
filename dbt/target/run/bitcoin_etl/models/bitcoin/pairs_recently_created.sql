@@ -4,7 +4,7 @@
     
     
         
-        insert into `bitcoin_bitcoin_derived`.`pairs_recently_created`
+        insert into `bitcoin_bitcoin_derived`.`pairs_recently_created__dbt_backup`
         ("pair_id", "created_at_timestamp", "created_at_block_number", "token0_symbol", "token0_id", "token1_symbol", "token1_id", "total_liquidity_usd", "total_liquidity_eth", "pair_symbol")
 
 SELECT

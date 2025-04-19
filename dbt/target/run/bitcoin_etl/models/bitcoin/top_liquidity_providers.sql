@@ -1,6 +1,6 @@
 
 
-  create view `bitcoin`.`top_liquidity_providers` 
+  create view `bitcoin`.`top_liquidity_providers__dbt_tmp` 
   
     
     

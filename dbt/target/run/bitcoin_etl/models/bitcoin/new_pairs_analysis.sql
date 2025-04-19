@@ -1,6 +1,6 @@
 
 
-  create view `bitcoin`.`new_pairs_analysis` 
+  create view `bitcoin`.`new_pairs_analysis__dbt_tmp` 
   
     
     
