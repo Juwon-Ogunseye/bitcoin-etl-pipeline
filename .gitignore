@@ -31,3 +31,4 @@ dags/cryo/crate/python/python_tests
 /dags/subgraph_scripts/.gitignore
 /dags/cryo/README.md
 /dags/cryo/book.tomls
+dags/subgraph_scripts/extract.py
