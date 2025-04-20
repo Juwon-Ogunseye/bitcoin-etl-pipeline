@@ -1,7 +1,7 @@
 # **🚀 WBTC → S3 → ClickHouse Analytics Pipeline**  
 *High-performance blockchain ETL with etherium node, clickhouse, S3, Airflow, DBT, and Metabase*  
 
-### ** The Problem**  
+###  The Problem  
 Blockchain data, especially from high-activity networks like Ethereum, presents unique challenges that traditional data pipelines are ill-equipped to handle. The sheer volume of transactions, the complexity of decoding raw logs into meaningful events, and the need for both real-time and historical analysis create significant technical hurdles.
 
 For example, tracking Wrapped Bitcoin (WBTC) movements across Ethereum requires ingesting millions of on-chain events daily, decoding them into usable formats, and storing them in a way that supports fast, complex queries. Traditional databases often struggle with the scale and speed required, leading to bottlenecks in performance and usability. Additionally, ensuring data quality and consistency—especially when dealing with chain reorganizations or missing logs—adds another layer of complexity.
